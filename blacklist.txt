@@ -1,0 +1,12 @@
+DOMAIN,mime.baidu.com
+DOMAIN,olime.baidu.com
+DOMAIN,xxx.com
+DOMAIN-SUFFIX,ntdtv
+DOMAIN-SUFFIX,epochtimes
+DOMAIN-SUFFIX,csdn
+DOMAIN-SUFFIX,hotbak
+DOMAIN,imtt.qq.com
+DOMAIN,html5.qq.com
+DOMAIN,masterconn.qq.com
+DOMAIN,mb.qq.com
+DOMAIN-SUFFIX,hotbak

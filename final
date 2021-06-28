@@ -1,0 +1,54 @@
+[custom]
+;custom_proxy_group=UrlTest`url-test`.*`http://www.gstatic.com/generate_204`300,5,100 300s检测一次 timeout5 tolerance100
+
+;urltest/auto规则 surge_ruleset=DIRECT,rules/ConnersHua/Surge/Ruleset/Unbreak.list surge_ruleset=DIRECT,https://raw.mhatp.workers.dev/ACL4SSR/ACL4SSR/master/Clash/UnBan.list
+
+ruleset=直连,https://raw.mhatp.workers.dev/ACL4SSR/ACL4SSR/master/Clash/LocalAreaNetwork.list
+ruleset=直连,https://raw.mhatp.workers.dev/ACL4SSR/ACL4SSR/master/Clash/UnBan.list
+；ruleset=广告拦截,https://raw.mhatp.workers.dev/ACL4SSR/ACL4SSR/master/Clash/BanAD.list
+ruleset=广告拦截,https://raw.mhatp.workers.dev/ACL4SSR/ACL4SSR/master/Clash/BanProgramAD.list
+；ruleset=广告拦截,https://raw.mhatp.workers.dev/ACL4SSR/ACL4SSR/master/Clash/BanEasyListChina.list
+;ruleset=广告拦截,https://raw.mhatp.workers.dev/ACL4SSR/ACL4SSR/master/Clash/BanEasyPrivacy.list
+ruleset=直连,https://raw.mhatp.workers.dev/ACL4SSR/ACL4SSR/master/Clash/Ruleset/GoogleFCM.list
+;ruleset=直连,https://raw.mhatp.workers.dev/ACL4SSR/ACL4SSR/master/Clash/GoogleCN.list
+;ruleset=B站,https://raw.mhatp.workers.dev/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Bilibili.list
+;ruleset=B站,https://raw.mhatp.workers.dev/ACL4SSR/ACL4SSR/master/Clash/Ruleset/BilibiliHMT.list
+ruleset=Google,https://raw.mhatp.workers.dev/ACL4SSR/ACL4SSR/master/Clash/Ruleset/YouTube.list
+ruleset=Netflix,https://raw.mhatp.workers.dev/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Github.list
+ruleset=Netflix,https://raw.mhatp.workers.dev/ACL4SSR/ACL4SSR/master/Clash/ProxyMedia.list
+ruleset=Apple,https://raw.mhatp.workers.dev/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Apple.list
+ruleset=微软,https://raw.mhatp.workers.dev/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Microsoft.list
+ruleset=Emby,https://raw.mhatp.workers.dev/Windyskr/gallery/master/emby
+ruleset=Google,https://raw.mhatp.workers.dev/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Google.list
+ruleset=Telegram,https://raw.mhatp.workers.dev/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Telegram.list
+;ruleset=国内,https://raw.mhatp.workers.dev/ACL4SSR/ACL4SSR/master/Clash/ChinaIp.list
+ruleset=国内,https://raw.mhatp.workers.dev/ACL4SSR/ACL4SSR/master/Clash/ChinaDomain.list
+ruleset=国内,https://raw.mhatp.workers.dev/ACL4SSR/ACL4SSR/master/Clash/ChinaCompanyIp.list
+ruleset=节点选择,https://raw.mhatp.workers.dev/ACL4SSR/ACL4SSR/master/Clash/ProxyLite.list
+ruleset=国内,[]GEOIP,CN
+ruleset=漏网之鱼,[]FINAL
+
+
+custom_proxy_group=节点选择`select`[]香港负载均衡`[]新加坡负载均衡`[]直连`.*
+;custom_proxy_group=香港`select`(香港|HK)`http://www.google.com/generate_204`600,5,30
+;custom_proxy_group=美国`select`(美)`http://www.google.com/generate_204`3000,5,30
+;custom_proxy_group=日本`select`(日本|JP)`http://www.google.com/generate_204`2500,5,30
+;custom_proxy_group=新加坡`select`(SG|新加坡)`http://www.google.com/generate_204`600,5,30
+custom_proxy_group=新加坡负载均衡`load-balance`新.*(3)`http://www.gstatic.com/generate_204`550,,100
+custom_proxy_group=香港负载均衡`load-balance`(香港).*( 1)`http://www.gstatic.com/generate_204`700,,100
+custom_proxy_group=Netflix`select`[]新加坡负载均衡`(新|SG)
+custom_proxy_group=Google`select`[]香港负载均衡`(日本|DC1)
+custom_proxy_group=Telegram`select`[]新加坡负载均衡`[]节点选择`(新加坡 03|新实 1|新标 3)
+;custom_proxy_group=Telegram`fallback`[]新加坡负载均衡`[]香港负载均衡`[]节点选择`http://www.google.com/generate_204`300
+;custom_proxy_group=B站`select`[]直连`[]节点选择
+custom_proxy_group=微软`select`[]直连`[]节点选择
+custom_proxy_group=Emby`select`[]节点选择`[]直连`(实验|HK)
+custom_proxy_group=Apple`select`[]直连`[]节点选择`(US|美国)
+custom_proxy_group=国内`select`[]直连`[]节点选择
+custom_proxy_group=漏网之鱼`select`[]节点选择`[]直连
+custom_proxy_group=广告拦截`select`[]屏蔽`[]节点选择`[]直连
+custom_proxy_group=屏蔽`select`[]REJECT
+custom_proxy_group=直连`select`[]DIRECT
+
+enable_rule_generator=true
+overwrite_original_rules=true
